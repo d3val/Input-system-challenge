@@ -38,14 +38,34 @@ public class WheelDrive : MonoBehaviour
     public InputActionAsset primaryActions;
     InputActionMap gameplayActionMap;
     InputAction handBrakeInputAction;
+    InputAction acelerationInputAction;
+    InputAction steeringAngleInputAction;
 
     private void Awake()
     {
         gameplayActionMap = primaryActions.FindActionMap("Gameplay");
         handBrakeInputAction = gameplayActionMap.FindAction("Handbrake");
+        acelerationInputAction = gameplayActionMap.FindAction("Aceleration");
+        steeringAngleInputAction = gameplayActionMap.FindAction("SteeringAngle");
 
         handBrakeInputAction.performed += GetHandBrakeInput;
         handBrakeInputAction.canceled += GetHandBrakeInput;
+
+        acelerationInputAction.performed += GetTorqueInput;
+        acelerationInputAction.canceled += GetTorqueInput;
+
+        steeringAngleInputAction.performed += GetAngleInput;
+        steeringAngleInputAction.canceled += GetAngleInput;
+    }
+
+    void GetTorqueInput(InputAction.CallbackContext ctx)
+    {
+        torque = ctx.ReadValue<float>() * maxTorque;
+    }
+
+    void GetAngleInput(InputAction.CallbackContext ctx)
+    {
+        angle = ctx.ReadValue<float>() * maxAngle;
     }
 
     void GetHandBrakeInput(InputAction.CallbackContext ctx)
@@ -56,10 +76,14 @@ public class WheelDrive : MonoBehaviour
     private void OnEnable()
     {
         handBrakeInputAction.Enable();
+        steeringAngleInputAction.Enable();
+        acelerationInputAction.Enable();
     }
     private void OnDisable()
     {
         handBrakeInputAction.Disable();
+        steeringAngleInputAction.Disable();
+        acelerationInputAction.Disable();
     }
     // Find all the WheelColliders down in the hierarchy.
     void Start()
@@ -87,9 +111,6 @@ public class WheelDrive : MonoBehaviour
     void Update()
     {
         m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
-
-        angle = maxAngle * Input.GetAxis("Horizontal");
-        torque = maxTorque * Input.GetAxis("Vertical");
 
 
         foreach (WheelCollider wheel in m_Wheels)

@@ -1,1 +1,54 @@
-{}
+{
+    "name": "Primary Input Actions",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "044cca5d-ca42-4cbd-a54f-f7060f59bace",
+            "actions": [
+                {
+                    "name": "NextVehicle",
+                    "type": "Button",
+                    "id": "e0ee8789-f717-4a06-8076-bceda5c12487",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetVehicle",
+                    "type": "Button",
+                    "id": "d1de15fb-6e30-4bda-9dc2-91fb9b1fd0a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7ce07f2e-991c-4b6b-adda-ecfa0ccb22f8",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextVehicle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa04004e-671e-4529-912e-d53d609359b9",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetVehicle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

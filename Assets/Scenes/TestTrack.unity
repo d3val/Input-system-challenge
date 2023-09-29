@@ -1295,7 +1295,7 @@ PrefabInstance:
     - target: {fileID: 114000011726551204, guid: 53c496fec7e88b444858ad01c2739816, type: 3}
       propertyPath: primaryActions
       value: 
-      objectReference: {fileID: -944628639613478452, guid: de783e4f78839c649991155d3dac1a3b, type: 3}
+      objectReference: {fileID: -944628639613478452, guid: 0df403b9eaf852640a07489f46b1551f, type: 3}
     - target: {fileID: 114000012284909490, guid: 53c496fec7e88b444858ad01c2739816, type: 3}
       propertyPath: forceShift
       value: 0.306
@@ -2700,7 +2700,7 @@ PrefabInstance:
     - target: {fileID: 114000012308462854, guid: 7795f89d42f39da46a9ce99e3b258355, type: 3}
       propertyPath: primaryActions
       value: 
-      objectReference: {fileID: -944628639613478452, guid: de783e4f78839c649991155d3dac1a3b, type: 3}
+      objectReference: {fileID: -944628639613478452, guid: 0df403b9eaf852640a07489f46b1551f, type: 3}
     - target: {fileID: 114000014248103162, guid: 7795f89d42f39da46a9ce99e3b258355, type: 3}
       propertyPath: forceShift
       value: 0.514
@@ -4115,7 +4115,7 @@ PrefabInstance:
     - target: {fileID: 114000013910545014, guid: 6577377bae7db18429e690f8f8f57881, type: 3}
       propertyPath: primaryActions
       value: 
-      objectReference: {fileID: -944628639613478452, guid: de783e4f78839c649991155d3dac1a3b, type: 3}
+      objectReference: {fileID: -944628639613478452, guid: 0df403b9eaf852640a07489f46b1551f, type: 3}
     - target: {fileID: 146000011612348708, guid: 6577377bae7db18429e690f8f8f57881, type: 3}
       propertyPath: m_SuspensionDistance
       value: 0.1962

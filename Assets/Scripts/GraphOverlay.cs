@@ -100,7 +100,7 @@ public class GraphOverlay : MonoBehaviour
 		m_SpeedText = infoGo.AddComponent<Text>();
 		var textXform = infoGo.GetComponent<RectTransform>();
 
-		m_SpeedText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+		m_SpeedText.font = Resources.GetBuiltinResource(typeof(Font), "LegacyRuntime.ttf") as Font;
         m_SpeedText.fontSize = k_InfoFontSize;
 
         textXform.anchorMin = Vector2.up;

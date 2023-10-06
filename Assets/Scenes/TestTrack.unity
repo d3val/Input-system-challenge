@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 627177950}
-  m_IndirectSpecularColor: {r: 0.2786833, g: 0.43013406, b: 0.56776184, a: 1}
+  m_IndirectSpecularColor: {r: 0.069375634, g: 0.16825032, b: 0.2993145, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5070,7 +5070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 25}
+  m_AnchoredPosition: {x: 10, y: 65}
   m_SizeDelta: {x: 230, y: 120}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1645942729
@@ -5106,8 +5106,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Movement: \tWASD / arrows\nCamera: \t\tSpaceBar\nNext vehicle:        
-    K\nHandbrake:           X\nReset                     R"
+  m_Text: "Movement: \tWASD / arrows / left joystick\nCamera: \t\tSpaceBar / West
+    button\nNext vehicle:         K / North button\nHandbrake:            X / South
+    button\nReset                      R / Options\nAceleration: \t\t\tRight trigger\nBreak:\t\t\t\t\t\tLeft
+    trigger"
 --- !u!222 &1645942730
 CanvasRenderer:
   m_ObjectHideFlags: 0

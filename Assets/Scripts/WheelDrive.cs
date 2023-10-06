@@ -41,8 +41,14 @@ public class WheelDrive : MonoBehaviour
     InputAction acelerationInputAction;
     InputAction steeringAngleInputAction;
 
+    public Vector3 originPos { get; private set; }
+    public Quaternion originRot { get; private set; }
+
     private void Awake()
     {
+        originPos = transform.position;
+        originRot = transform.rotation;
+
         gameplayActionMap = primaryActions.FindActionMap("Gameplay");
         handBrakeInputAction = gameplayActionMap.FindAction("Handbrake");
         acelerationInputAction = gameplayActionMap.FindAction("Aceleration");

@@ -121,8 +121,12 @@ public class CarSwitcher : MonoBehaviour
         Transform vehicleT = vehicles[m_VehicleId].transform;
         Transform camRig = vehicleT.Find("CamRig");
 
+        WheelDrive vehicleWheelD = vehicles[m_VehicleId].GetComponent<WheelDrive>();
+        vehicleT.SetPositionAndRotation(vehicleWheelD.originPos, vehicleWheelD.originRot);
+
         m_DriftCamera.lookAtTarget = camRig.Find("CamLookAtTarget");
         m_DriftCamera.positionTarget = camRig.Find("CamPosition");
         m_DriftCamera.sideView = camRig.Find("CamSidePosition");
+        LevelManager.instance.ResetLevel();
     }
 }

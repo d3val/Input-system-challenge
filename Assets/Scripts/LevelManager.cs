@@ -12,8 +12,11 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager instance;
     public Timer timer;
-    List<GameObject> checkpoints;
+    public List<GameObject> checkpoints;
     public Transform lastCheckpointPosition;
+
+    public Text checkpointText;
+    public int checkpointCount;
 
     // Start is called before the first frame update
     private void Awake()
@@ -21,15 +24,34 @@ public class LevelManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            UpdateTextCount();
         }
         else { Destroy(gameObject); }
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
+    public void CountCheckpoint()
     {
-       
+        checkpointCount++;
+        UpdateTextCount();
+        if (checkpointCount >= checkpoints.Count)
+            timer.enabled = false;
+    }
+
+    void UpdateTextCount()
+    {
+        checkpointText.text = string.Format("{0:00}/{1:00}", checkpointCount, checkpoints.Count);
+    }
+
+    public void ResetLevel()
+    {
+        timer.enabled = false;
+        foreach (GameObject checkpoint in checkpoints)
+        {
+            checkpoint.SetActive(true);
+        }
+        checkpointCount = 0;
+        UpdateTextCount();
+        timer.enabled = true;
+        lastCheckpointPosition= null;
     }
 }

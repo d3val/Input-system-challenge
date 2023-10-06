@@ -9,6 +9,7 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             LevelManager.instance.lastCheckpointPosition = transform;
+            LevelManager.instance.CountCheckpoint();
             gameObject.SetActive(false);
         }
     }

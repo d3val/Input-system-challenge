@@ -1944,6 +1944,7 @@ MonoBehaviour:
     updateCameraInFixedUpdate: 1
     updateCameraInLateUpdate: 0
     switchViewKey: 32
+  primaryActions: {fileID: -944628639613478452, guid: 0df403b9eaf852640a07489f46b1551f, type: 3}
 --- !u!114 &482030220
 MonoBehaviour:
   m_ObjectHideFlags: 0

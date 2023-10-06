@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DriftCamera : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class DriftCamera : MonoBehaviour
         public bool updateCameraInUpdate;
         public bool updateCameraInFixedUpdate = true;
         public bool updateCameraInLateUpdate;
-        public KeyCode switchViewKey = KeyCode.Space;
     }
 
     public float smoothing = 6f;
@@ -17,31 +17,51 @@ public class DriftCamera : MonoBehaviour
     public Transform positionTarget;
     public Transform sideView;
     public AdvancedOptions advancedOptions;
+    public InputActionAsset primaryActions;
+    InputActionMap inputActionMap;
+    InputAction changeCameraAction;
+    private void Awake()
+    {
+        inputActionMap = primaryActions.FindActionMap("Camera");
+        changeCameraAction = inputActionMap.FindAction("Change");
+        changeCameraAction.performed += ctx => m_ShowingSideView = !m_ShowingSideView;
+    }
+
+    private void OnEnable()
+    {
+        primaryActions.Enable();
+        inputActionMap.Enable();
+        changeCameraAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        primaryActions.Disable();
+        inputActionMap.Disable();
+        changeCameraAction.Disable();
+    }
 
     bool m_ShowingSideView;
 
-    private void FixedUpdate ()
+    private void FixedUpdate()
     {
-        if(advancedOptions.updateCameraInFixedUpdate)
-            UpdateCamera ();
+        if (advancedOptions.updateCameraInFixedUpdate)
+            UpdateCamera();
     }
 
-    private void Update ()
+    private void Update()
     {
-        if (Input.GetKeyDown (advancedOptions.switchViewKey))
-            m_ShowingSideView = !m_ShowingSideView;
-
-        if(advancedOptions.updateCameraInUpdate)
-            UpdateCamera ();
+        if (advancedOptions.updateCameraInUpdate)
+            UpdateCamera();
     }
 
-    private void LateUpdate ()
+    private void LateUpdate()
     {
-        if(advancedOptions.updateCameraInLateUpdate)
-            UpdateCamera ();
+        if (advancedOptions.updateCameraInLateUpdate)
+            UpdateCamera();
     }
 
-    private void UpdateCamera ()
+    private void UpdateCamera()
     {
         if (m_ShowingSideView)
         {

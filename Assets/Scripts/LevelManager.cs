@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Security.Permissions;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> checkpoints;
     public Transform lastCheckpointPosition;
 
-    public Text checkpointText;
+    public TextMeshProUGUI checkpointText;
     public int checkpointCount;
 
     // Start is called before the first frame update

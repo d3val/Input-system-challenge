@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     double timer;
-    public Text timerText;
+    public TextMeshProUGUI timerText;
     public void ResetTimer()
     {
         timer = 0;
